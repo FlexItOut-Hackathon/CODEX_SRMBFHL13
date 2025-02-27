@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoveNet Pose Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>MoveNet Pose Tracker</h1>
+    <video id="video" autoplay playsinline></video>
+    <canvas id="canvas"></canvas>
+    <div id="count">
+        <p>Push-ups: <span id="pushup-count">0</span></p>
+        <p>Squats: <span id="squat-count">0</span></p>
+        <p>Hammer Curls: <span id="curl-count">0</span></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
