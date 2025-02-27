@@ -1,0 +1,29 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+}
+.navbar {
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.navbar-nav .nav-item {
+    margin-right: 20px; /* Adds space between navbar items */
+}
+.navbar-nav {
+    margin: auto;
+}
+.navbar-brand {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.navbar-brand img {
+    height: 70px; /* Increase logo size */
+    width: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.signIN{
+    text-decoration: none;
+}

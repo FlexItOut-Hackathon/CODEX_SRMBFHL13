@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitAI - Fitness Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="stylesheet" href="../style/dashboard.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="../assets/logo.png" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="camera.html"><i class="fas fa-dumbbell"></i> Fit Cam</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-chart-bar"></i> Progress</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-users"></i> Community</a>
+                    </li> -->
+                </ul>
+                <div class="d-flex align-items-center">
+                    <div class="notification-icon">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">2</span>
+                    </div>
+                    <img src="../assets/me.jpg" alt="Profile" class="profile-img">
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Dashboard Container -->
+    <div class="container">
+        <div class="dashboard-grid">
+            <!-- Profile Card -->
+            <div class="card profile-card">
+                <img src="../assets/me.jpg" alt="User Profile" class="user-avatar">
+                <h4 class="user-name">Alex Mitchell</h4>
+                <p class="user-level">Elite Athlete</p>
+                <div class="streak-badge">
+                    <i class="fas fa-fire"></i> 7 Day Streak
+                </div>
+            </div>
+            
+            <!-- Activity Graph -->
+            <div class="card graph-container">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="card-title">Weekly Activity</h5>
+                    <div class="stat-increase">
+                        <i class="fas fa-arrow-up"></i> 23% increase
+                    </div>
+                </div>
+                <canvas id="activityChart" height="180"></canvas>
+            </div>
+            
+            <!-- Leaderboard -->
+            <div class="card leaderboard-card">
+                <h5 class="card-title">Weekly Leaderboard</h5>
+                <div class="leaderboard-item">
+                    <div class="leaderboard-rank">1</div>
+                    <img src="../assets/me.jpg" alt="Sarah" class="leaderboard-img">
+                    <div class="leaderboard-info">
+                        <h6 class="leaderboard-name">Sarah Johnson</h6>
+                        <p class="leaderboard-points">2840 pts</p>
+                    </div>
+                </div>
+                <div class="leaderboard-item">
+                    <div class="leaderboard-rank silver">2</div>
+                    <img src="../assets/me.jpg" alt="Mike" class="leaderboard-img">
+                    <div class="leaderboard-info">
+                        <h6 class="leaderboard-name">Mike Chen</h6>
+                        <p class="leaderboard-points">2720 pts</p>
+                    </div>
+                </div>
+                <div class="leaderboard-item">
+                    <div class="leaderboard-rank bronze">3</div>
+                    <img src="../assets/me.jpg  " alt="Emma" class="leaderboard-img">
+                    <div class="leaderboard-info">
+                        <h6 class="leaderboard-name">Emma Wilson</h6>
+                        <p class="leaderboard-points">2650 pts</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI Recommendation -->
+            <div class="card ai-card">
+                <h5 class="ai-title"><i class="fas fa-robot"></i> AI Recommendation</h5>
+                <p>Based on your recent activity, we suggest:</p>
+                <h6 class="ai-workout">High-Intensity Interval Training</h6>
+                <p class="ai-description">Perfect for your energy levels and goals. 30 mins, 400 calories.</p>
+            </div>
+            
+            <!-- Progress Tracker -->
+            <div class="card tracker-container">
+                <h5 class="card-title">Monthly Progress</h5>
+                
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span class="progress-title"><i class="fas fa-calendar-check"></i> Monthly Workouts</span>
+                        <span class="progress-stats">18 / 24</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-workouts" role="progressbar" style="width: 75%"></div>
+                    </div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span class="progress-title"><i class="fas fa-fire"></i> Calories Burned</span>
+                        <span class="progress-stats">12400 / 15000</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-calories" role="progressbar" style="width: 83%"></div>
+                    </div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span class="progress-title"><i class="fas fa-dumbbell"></i> Strength Goal</span>
+                        <span class="progress-stats">85 / 100</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-strength" role="progressbar" style="width: 85%"></div>
+                    </div>
+                </div>
+                
+                <div class="progress-container mb-0">
+                    <div class="progress-label">
+                        <span class="progress-title"><i class="fas fa-heartbeat"></i> Cardio Minutes</span>
+                        <span class="progress-stats">160 / 200</span>
+                    </div>
+                    <div class="progress mb-0">
+                        <div class="progress-bar progress-bar-cardio" role="progressbar" style="width: 80%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Health Metrics -->
+            <div class="card health-card">
+                <h5 class="card-title">Health Metrics</h5>
+                
+                <div class="health-metric">
+                    <span class="health-label">Resting Heart Rate</span>
+                    <div class="d-flex align-items-center">
+                        <span class="health-value">68 bpm</span>
+                        <span class="health-change positive ms-2">+2</span>
+                    </div>
+                </div>
+                
+                <div class="health-metric">
+                    <span class="health-label">Sleep Quality</span>
+                    <div class="d-flex align-items-center">
+                        <span class="health-value">85%</span>
+                        <span class="health-change positive ms-2">+5%</span>
+                    </div>
+                </div>
+                
+                <div class="health-metric mb-0">
+                    <span class="health-label">Recovery Score</span>
+                    <div class="d-flex align-items-center">
+                        <span class="health-value">92%</span>
+                        <span class="health-change negative ms-2">-3%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Actions -->
+            <div class="card quick-actions">
+                <h5 class="card-title">Quick Actions</h5>
+                <div class="actions-grid">
+                    <div class="action-item">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Start Workout</span>
+                    </div>
+                    <div class="action-item">
+                        <i class="fas fa-calendar"></i>
+                        <span>Schedule</span>
+                    </div>
+                    <div class="action-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Log Metrics</span>
+                    </div>
+                    <div class="action-item">
+                        <i class="fas fa-user-friends"></i>
+                        <span>Find Partner</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Achievements -->
+            <div class="card achievements">
+                <h5 class="card-title">Recent Achievements</h5>
+                
+                <div class="achievement-item">
+                    <div class="achievement-icon streak-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="achievement-text">
+                        <h6 class="achievement-title">30 Day Streak</h6>
+                        <p class="achievement-date">Today</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-item">
+                    <div class="achievement-icon run-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <div class="achievement-text">
+                        <h6 class="achievement-title">100km Run</h6>
+                        <p class="achievement-date">2 days ago</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-item mb-0">
+                    <div class="achievement-icon week-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="achievement-text">
+                        <h6 class="achievement-title">Perfect Week</h6>
+                        <p class="achievement-date">5 days ago</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Upcoming Workouts -->
+            <div class="card upcoming-workouts">
+                <h5 class="card-title">Upcoming Workouts</h5>
+                
+                <div class="workout-item">
+                    <div class="workout-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <div class="workout-info">
+                        <h6 class="workout-title">HIIT Training</h6>
+                        <p class="workout-time">Today, 6:00 PM</p>
+                    </div>
+                    <span class="workout-duration">45 min</span>
+                </div>
+                
+                <div class="workout-item mb-0">
+                    <div class="workout-icon workout-strength-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <div class="workout-info">
+                        <h6 class="workout-title">Strength Trainin </h6>
+                        <p class="workout-time">Tomorrow, 7:30 AM</p>
+                    </div>
+                    <span class="workout-duration">60 min</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/
