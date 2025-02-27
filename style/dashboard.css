@@ -178,6 +178,11 @@ body {
     height: 100%;
     align-self: stretch; /* Ensures only leaderboard stretches */
 }
+.leaderboard-card h4{
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
 
 .leaderboard-list {
     flex-grow: 1; /* Expands to fill available space */
@@ -195,8 +200,17 @@ body {
     background-color: var(--light-bg);
 }
 .leaderboard-info{
-    text-align: left;
-    padding-top: 5px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    /* text-align: left;
+    padding-top: 5px; */
+}
+.leaderboard-info p {
+    font-weight: 500;
+    margin-top: 10px;
 }
 .leaderboard-img {
     width: 40px;
@@ -211,6 +225,11 @@ body {
     box-shadow: var(--card-shadow);
     padding: 20px;
     text-align: center;
+}
+
+.achievements-card h5{
+    font-weight: 700;
+    margin-bottom: 10px;
 }
 
 .achievements-container {
