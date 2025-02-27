@@ -1,18 +1,15 @@
-
 :root {
-    --primary: #4361ee;
+    --primary: #ff3d3d;
     --secondary: #3a0ca3;
     --success: #4cc9f0;
     --warning: #f72585;
     --light-bg: #f8f9fa;
     --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --gradient-primary: linear-gradient(135deg, #4361ee, #3a0ca3);
-    --gradient-secondary: linear-gradient(135deg, #f72585, #4361ee);
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f0f2f5;
+    background-color: #f4f5f7;
     color: #333;
 }
 
@@ -100,10 +97,13 @@ body {
 
 .dashboard-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto;
+    grid-template-columns: 1fr 2fr 1fr;
     gap: 20px;
     padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+    min-height: 100vh; /* Ensures full viewport height */
+    align-items: start; /* Prevents all cards from stretching */
 }
 
 .card {
@@ -111,577 +111,169 @@ body {
     border-radius: 12px;
     border: none;
     box-shadow: var(--card-shadow);
-    transition: transform 0.2s;
-    overflow: hidden;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.card-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-}
-
-.card-title i {
-    margin-left: 8px;
-    color: var(--primary);
+    padding: 20px;
 }
 
 .profile-card {
-    grid-column: 1;
-    grid-row: 1 / span 2;
     text-align: center;
-    padding: 16px;
-    height: fit-content;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-name {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.user-role {
+    background: rgba(108, 92, 231, 0.1);
+    color: var(--primary);
+    padding: 5px 12px;
+    font-size: 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    font-weight: 500;
 }
 
 .user-avatar {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    margin: 0 auto 12px;
-    border: 3px solid var(--primary);
-}
-
-.user-name {
-    font-weight: 600;
-    margin-bottom: 3px;
-    font-size: 1.1rem;
-}
-
-.user-level {
-    color: var(--primary);
-    font-weight: 500;
-    margin-bottom: 10px;
-    font-size: 0.9rem;
+    border: 3px solid var;
+    object-fit: cover;
+    margin-bottom: 12px;
 }
 
 .streak-badge {
-    background: var(--gradient-primary);
-    color: white;
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+    color: #f39c12;
+    font-weight: 500;
 }
-.graph-container {
-    grid-column: 2 / span 2;
-    grid-row: 1;
+
+.streak-badge i {
+    color: #f39c12;
+}
+
+.ai-card {
+    background: #ff4d4d;
+    color: white;
     padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
 }
 
 .leaderboard-card {
-    grid-column: 4;
-    grid-row: 1 / span 2;
-    padding: 16px;
-    height: fit-content;
+    grid-column: span 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-self: stretch; /* Ensures only leaderboard stretches */
+}
+
+.leaderboard-list {
+    flex-grow: 1; /* Expands to fill available space */
+    overflow-y: auto; /* Enables scrolling for large content */
+    padding-right: 10px;
 }
 
 .leaderboard-item {
     display: flex;
+    align-items: center;
     align-items: center;
     margin-bottom: 10px;
     padding: 8px;
     border-radius: 8px;
     background-color: var(--light-bg);
 }
-
-.leaderboard-item:hover {
-    background-color: rgba(67, 97, 238, 0.08);
+.leaderboard-info{
+    text-align: left;
+    padding-top: 5px;
 }
-
-.leaderboard-rank {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #ffd700;
-    color: #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    margin-right: 8px;
-    font-size: 0.7rem;
-}
-
-.leaderboard-rank.silver {
-    background-color: #c0c0c0;
-}
-
-.leaderboard-rank.bronze {
-    background-color: #cd7f32;
-}
-
 .leaderboard-img {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     margin-right: 8px;
 }
 
-.leaderboard-info {
-    flex: 1;
-}
-
-.leaderboard-name {
-    font-weight: 500;
-    margin-bottom: 0;
-    font-size: 0.8rem;
-}
-
-.leaderboard-points {
-    font-size: 0.8rem;
-    color: #666;
-    margin-bottom: 0;
-}
-
-.ai-card {
-    grid-column: 1;
-    grid-row: 2;
-    background: var(--gradient-primary);
-    color: white;
-    padding: 20px;
-}
-
-.ai-title {
-    color: white;
-    display: flex;
-    align-items: center;
-}
-
-.ai-title i {
+.achievements-card {
     background: white;
-    color: var(--primary);
-    padding: 6px;
-    border-radius: 50%;
-    font-size: 0.8rem;
-    margin-right: 8px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    padding: 20px;
+    text-align: center;
 }
 
-.ai-workout {
-    font-weight: 600;
-    margin-top: 15px;
-}
-
-.ai-description {
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
-
-.tracker-container {
-    grid-column: 2;
-    grid-row: 2;
-}
-
-.progress-container {
-    margin-bottom: 16px;
-}
-
-.progress-label {
+.achievements-container {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-}
-
-.progress-title {
-    display: flex;
+    justify-content: space-around;
     align-items: center;
-    font-weight: 500;
-    font-size: 0.9rem;
-}
-
-.progress-title i {
-    margin-right: 8px;
-    color: var(--primary);
-}
-
-.progress-stats {
-    font-size: 0.8rem;
-    color: #666;
-}
-
-.progress {
-    height: 8px;
-    background-color: #e9ecef;
-    margin-bottom: 15px;
-}
-
-.progress-bar-workouts {
-    background: var(--primary);
-}
-
-.progress-bar-calories {
-    background: var(--warning);
-}
-
-.progress-bar-strength {
-    background: var(--secondary);
-}
-
-.progress-bar-cardio {
-    background: var(--success);
-}
-
-.health-card {
-    grid-column: 4;
-    grid-row: 2;
-}
-
-.health-metric {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-    padding: 12px;
-    border-radius: 8px;
-    background-color: var(--light-bg);
-}
-
-.health-label {
-    font-weight: 500;
-    font-size: 0.9rem;
-}
-
-.health-value {
-    font-weight: 600;
-    color: #333;
-}
-
-.health-change {
-    font-size: 0.8rem;
-    padding: 2px 6px;
-    border-radius: 4px;
-}
-
-.health-change.positive {
-    background-color: rgba(40, 167, 69, 0.1);
-    color: #28a745;
-}
-
-.health-change.negative {
-    background-color: rgba(220, 53, 69, 0.1);
-    color: #dc3545;
-}
-
-.quick-actions {
-    grid-column: 3;
-    grid-row: 2;
-}
-
-.actions-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-}
-
-.action-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--light-bg);
-    border-radius: 8px;
-    padding: 15px 10px;
-    transition: all 0.2s;
-    cursor: pointer;
-}
-
-.action-item:hover {
-    background-color: rgba(67, 97, 238, 0.08);
-    color: var(--primary);
-}
-
-.action-item i {
-    font-size: 1.3rem;
-    margin-bottom: 8px;
-    color: var(--primary);
-}
-
-.achievements {
-    grid-column: 1;
-    grid-row: 3;
+    margin-top: 15px;
 }
 
 .achievement-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    margin-bottom: 12px;
-    padding: 10px;
-    background-color: var(--light-bg);
-    border-radius: 8px;
+    text-align: center;
 }
 
 .achievement-icon {
-    width: 36px;
-    height: 36px;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 0, 0, 0.1);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 12px;
-    font-size: 1.2rem;
-    border-radius: 50%;
-}
-
-.streak-icon {
-    background-color: #ffd700;
-    color: #333;
-}
-
-.run-icon {
-    background-color: #4cc9f0;
-    color: white;
-}
-
-.week-icon {
-    background-color: #f72585;
-    color: white;
-}
-
-.achievement-text {
-    flex: 1;
+    color: #ff3d3d;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
 }
 
 .achievement-title {
-    font-weight: 500;
-    margin-bottom: 0;
+    font-weight: 600;
     font-size: 0.9rem;
 }
 
 .achievement-date {
     font-size: 0.8rem;
-    color: #666;
-    margin-bottom: 0;
+    color: #777;
 }
 
-.upcoming-workouts {
-    grid-column: 3;
-    grid-row: 2;
+.stats-card {
+    padding: 20px;
 }
 
-.workout-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-    padding: 12px;
-    background-color: var(--light-bg);
+.stats-progress {
+    background: #e0e0e0;
+    border-radius: 8px;
+    height: 8px;
+    overflow: hidden;
+}
+
+.stats-progress-bar {
+    height: 8px;
     border-radius: 8px;
 }
 
-.workout-icon {
-    width: 40px;
-    height: 40px;
-    background-color: var(--primary);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    margin-right: 12px;
-    font-size: 1.2rem;
-}
-
-.workout-strength-icon {
-    background-color: var(--secondary);
-}
-
-.workout-info {
-    flex: 1;
-}
-
-.workout-title {
-    font-weight: 500;
-    margin-bottom: 3px;
-    font-size: 0.9rem;
-}
-
-.workout-time {
-    font-size: 0.8rem;
-    color: #666;
-    margin-bottom: 0;
-}
-
-.workout-duration {
-    background-color: rgba(67, 97, 238, 0.1);
-    color: var(--primary);
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: 500;
-}
-
-.stat-increase {
-    display: flex;
-    align-items: center;
-    color: #28a745;
-    font-size: 0.8rem;
-    background-color: rgba(40, 167, 69, 0.1);
-    padding: 3px 6px;
-    border-radius: 4px;
-    margin-left: 8px;
-}
-
-.stat-increase i {
-    margin-right: 3px;
-}
-
-@media (max-width: 1200px) {
-    .dashboard-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .profile-card {
-        grid-column: 1;
-        grid-row: 1;
-    }
-    
-    .graph-container {
-        grid-column: 2 / span 2;
-        grid-row: 1;
-    }
-    
-    .leaderboard-card {
-        grid-column: 1;
-        grid-row: 2;
-    }
-    
-    .ai-card {
-        grid-column: 2;
-        grid-row: 2;
-    }
-    
-    .tracker-container {
-        grid-column: 3;
-        grid-row: 2;
-    }
-    
-    .health-card {
-        grid-column: 1;
-        grid-row: 3;
-    }
-    
-    .quick-actions {
-        grid-column: 2;
-        grid-row: 3;
-    }
-    
-    .achievements {
-        grid-column: 3;
-        grid-row: 3;
-    }
-    
-    .upcoming-workouts {
-        grid-column: 1 / span 3;
-        grid-row: 4;
-    }
+.profile-card,
+.achievements-card {
+    align-self: flex-start; /* Keeps them at their natural height */
 }
 
 @media (max-width: 992px) {
     .dashboard-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .profile-card {
-        grid-column: 1;
-        grid-row: 1;
-    }
-    
-    .graph-container {
-        grid-column: 2;
-        grid-row: 1;
-    }
-    
-    .leaderboard-card {
-        grid-column: 1;
-        grid-row: 2;
-    }
-    
-    .ai-card {
-        grid-column: 2;
-        grid-row: 2;
-    }
-    
-    .tracker-container {
-        grid-column: 1;
-        grid-row: 3;
-    }
-    
-    .health-card {
-        grid-column: 2;
-        grid-row: 3;
-    }
-    
-    .quick-actions {
-        grid-column: 1;
-        grid-row: 4;
-    }
-    
-    .achievements {
-        grid-column: 2;
-        grid-row: 4;
-    }
-    
-    .upcoming-workouts {
-        grid-column: 1 / span 2;
-        grid-row: 5;
-    }
-}
-
-@media (max-width: 768px) {
-    .dashboard-grid {
         grid-template-columns: 1fr;
-        padding: 15px;
-    }
-    
-    .profile-card, .graph-container, .leaderboard-card, 
-    .ai-card, .tracker-container, .health-card, 
-    .quick-actions, .achievements, .upcoming-workouts {
-        grid-column: 1;
-    }
-    
-    .profile-card {
-        grid-row: 1;
-    }
-    
-    .graph-container {
-        grid-row: 2;
-    }
-    
-    .ai-card {
-        grid-row: 3;
-    }
-    
-    .tracker-container {
-        grid-row: 4;
-    }
-    
-    .leaderboard-card {
-        grid-row: 5;
-    }
-    
-    .health-card {
-        grid-row: 6;
-    }
-    
-    .achievements {
-        grid-row: 7;
-    }
-    
-    .quick-actions {
-        grid-row: 8;
-    }
-    
-    .upcoming-workouts {
-        grid-row: 9;
-    }
-    
-    .navbar-nav {
-        margin-top: 15px;
     }
 }
