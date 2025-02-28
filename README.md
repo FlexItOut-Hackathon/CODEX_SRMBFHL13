@@ -1,38 +1,37 @@
-# CODEX_SRMBFHL13
-Here are the angles used for detecting different exercises in your code:
+# **🔥 FitFusion – Your AI-Powered Fitness Trainer**  
 
-### **1. Push-Up**
-- **Key Points:** Shoulder, Elbow, Wrist (LEFT SIDE)
-- **Angles Used:**
-  - **Up Position:** `> (150 - up_tolerance)` → Default: **≥ 145°**
-  - **Down Position:** `< (70 + down_tolerance)` → Default: **≤ 75°**
-  - **Motion Detection:** Moving from **Up** → **Down** increments the counter.
+🚀 **Get Fit, Stay Motivated, and Track Progress Like Never Before!**  
+
+FitFusion is a **cutting-edge fitness tracking platform** that integrates **AI-driven motion detection** to count repetitions and analyze exercise form in real-time. Whether you're an **athlete, fitness enthusiast, or beginner**, FitFusion empowers you to **train smarter, track progress, and achieve your fitness goals** with precision.  
 
 ---
 
-### **2. Squat**
-- **Key Points:** Hip, Knee, Ankle (LEFT SIDE)
-- **Angles Used:**
-  - **Up Position:** `> 170°`
-  - **Down Position:** `< 90°`
-  - **Motion Detection:** Moving from **Up** → **Down** increments the counter.
+## 🎯 **Key Features**  
+
+✅ **Smart Exercise Tracking** – Detects **Push-ups, Squats, Hammer Curls**, and more using **motion angles**  
+✅ **AI-Powered Repetition Counter** – Tracks reps automatically for accurate workout logging 🚀  
+✅ **Real-Time Data Logging** – Stores and analyzes workout history 📊  
+✅ **User Authentication** – Secure **Register/Login system** for personalized tracking 🔒  
+✅ **Cross-Platform Access** – Seamless experience on Web & Mobile 🌍  
+✅ **Future Expansion** – AI-based form correction, workout plans, and voice assistance coming soon! 🎤  
 
 ---
 
-### **3. Hammer Curl**
-- **Key Points:** Shoulder, Elbow, Wrist (BOTH SIDES)
-- **Angles Used:**
-  - **Up Position:** `> 150°`
-  - **Down Position:** `< 50°`
-  - **Motion Detection:** Moving from **Up** → **Down** increments the counter for each arm separately.
+## 🏋️‍♂️ **Supported Exercises & Motion Detection**  
+
+| Exercise      | **Up Position Angle** | **Down Position Angle** |
+|--------------|----------------------|----------------------|
+| **Push-Up**   | ≥ 145°  | ≤ 75°  |
+| **Squat**     | > 170°  | < 90°  |
+| **Hammer Curl** | > 150° | < 50°  |
+
+📌 **More exercises are being added!** Stay tuned for **Lunges, Deadlifts, and Jumps!** 🎉  
 
 ---
 
-### **Summary of Angles:**
-| Exercise     | **Up Position Angle** | **Down Position Angle** |
-|-------------|----------------------|----------------------|
-| **Push-Up**  | ≥ 145°  | ≤ 75°  |
-| **Squat**    | > 170°  | < 90°  |
-| **Hammer Curl** | > 150° | < 50° |
+## 🚀 **How to Install & Run Locally**  
 
-Each exercise uses angles to determine motion states and count repetitions based on transitions between the **Up** and **Down** positions. 🚀
+### 1️⃣ **Clone the Repository**  
+```sh
+git clone https://github.com/FlexItOut-Hackathon/CODEX_SRMBFHL13.git
+cd FitFusion
