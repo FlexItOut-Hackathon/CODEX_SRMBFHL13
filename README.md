@@ -19,11 +19,12 @@ FitFusion is a **cutting-edge fitness tracking platform** that integrates **AI-d
 
 ## 🏋️‍♂️ **Supported Exercises & Motion Detection**  
 
-| Exercise      | **Up Position Angle** | **Down Position Angle** |
-|--------------|----------------------|----------------------|
-| **Push-Up**   | ≥ 145°  | ≤ 75°  |
-| **Squat**     | > 170°  | < 90°  |
-| **Hammer Curl** | > 150° | < 50°  |
+| Exercise      |
+|--------------|
+| **Stretching** | 
+| **Squat**     | 
+| **Hammer Curl** 
+| **Toe Touch** | 
 
 📌 **More exercises are being added!** Stay tuned for **Lunges, Deadlifts, and Jumps!** 🎉  
 
